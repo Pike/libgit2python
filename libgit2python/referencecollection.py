@@ -1,6 +1,7 @@
 import proxy
 from .reference import Reference
 
+
 class ReferenceCollection(object):
     def __init__(self, proxyrepo):
         self._repo = proxyrepo

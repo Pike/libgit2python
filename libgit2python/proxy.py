@@ -2,16 +2,21 @@ from ctypes import cdll, Structure, POINTER, byref, c_char_p, c_byte
 
 libgit2 = cdll.LoadLibrary('libgit2.dylib')
 
+
 class Repository(Structure):
     _fields_ = []
+
 
 class Reference(Structure):
     _fields_ = []
 
+
 class Oid(Structure):
-    _fields_ = [
-        ('id', c_byte*20)
+    _fields_ = \
+        [
+            ('id', c_byte*20)
         ]
+
 
 def git_repository_open(path):
     repo_p = POINTER(Repository)()
