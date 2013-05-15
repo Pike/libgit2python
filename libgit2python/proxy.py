@@ -1,6 +1,10 @@
+import platform
 from ctypes import cdll, Structure, POINTER, byref, c_char_p, c_byte
 
-libgit2 = cdll.LoadLibrary('libgit2.dylib')
+if platform.system() == 'Darwin':
+    libgit2 = cdll.LoadLibrary('libgit2.dylib')
+else:
+    libgit2 = cdll.LoadLibrary('libgit2.so')
 
 
 class Repository(Structure):
